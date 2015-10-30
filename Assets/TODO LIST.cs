@@ -2,8 +2,7 @@
 
     To do List
     
-    - Modificar a imagem do BG para aparecerem mais estrelinhas atrás nas laterais
-    - Modificar o Script do BG e o script das linhas para que respawnem de acordo com outro Game Obejct e não coordenadas
+    - Fazer mudar de pista com o "slide" não com toque (toque vai servirpra atirar/ fzr qqlr outra coisa)
     - Preparar a pontuação no HUD
     - Documentar um pouco o jogo (GDD)
     - Fazer o Script das cores
