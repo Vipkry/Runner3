@@ -45,7 +45,6 @@ public class MovimentoDoPlayer : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 posicaoMouseAtual = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 posicaoPlayerAtual = transform.position;
             if (!pulandoParaDireita && !pulandoParaEsquerda)
             {
 
