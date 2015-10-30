@@ -6,10 +6,10 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{64E2F6C6-1576-AED7-02C5-6D94F5E99C09}</ProjectGuid>
+	<ProjectGuid>{5618C7C2-D584-DA62-451D-499C7D006887}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -45,13 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CarregaCena.cs" />
-     <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
-     <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
-     <Compile Include="Assets\Scripts\ResolutionCameraFixer.cs" />
-     <Compile Include="Assets\Scripts\Rotacao.cs" />
-     <Compile Include="Assets\Scripts\Sair.cs" />
-     <Compile Include="Assets\TODO LIST.cs" />
+     <Compile Include="Assets\Scripts\ResolutionFixer.js" />
      <None Include="Assets\Fit All Screen Size\ReadMe.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
