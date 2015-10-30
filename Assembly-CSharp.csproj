@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{64E2F6C6-1576-AED7-02C5-6D94F5E99C09}</ProjectGuid>
+	<ProjectGuid>{5051F5EB-46D1-9CDE-6D0B-1CE979E53A3D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Sair.cs" />
      <Compile Include="Assets\TODO LIST.cs" />
      <None Include="Assets\Fit All Screen Size\ReadMe.txt" />
+     <None Include="Assets\asdasd.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

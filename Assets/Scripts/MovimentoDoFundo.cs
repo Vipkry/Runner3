@@ -19,16 +19,10 @@ public class MovimentoDoFundo : MonoBehaviour {
 			ativador = false;
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -velocidade));
 		}
-
-<<<<<<< HEAD
-		if (transform.position.y < -10.79f){
-
-			transform.position = new Vector3(transform.position.x,10.81f,2);
-=======
+		
 		if (transform.position.y < posYFinal){
 
 			transform.position = new Vector3(transform.position.x,posYInicial,posZ);
->>>>>>> refs/remotes/origin/master
 		}
 		//float posX = transform.position.x;
 		//float posY = transform.position.y;
