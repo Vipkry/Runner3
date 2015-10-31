@@ -1,8 +1,8 @@
-﻿/**
+/**
 
     To do List
-    
-    - Fazer mudar de pista com o "slide" não com toque (toque vai servirpra atirar/ fzr qqlr outra coisa)
+
+    - Fazer mudar de pista com o "slide" não com toque (toque vai servirpra atirar/ fzr qqlr outra coisa)(JPS)(DONE)
     - Preparar a pontuação no HUD
     - Documentar um pouco o jogo (GDD)
     - Fazer o Script das cores
@@ -12,8 +12,8 @@
     - Preparar a animação na mudança de pista (gustavo)
     - Preparar os tiros
     - Importar os sons (gustavo)
-    - Fazer um menu
-    - Fazer um pause menu
+    - Fazer um menu(JPS)
+    - Fazer um pause menu (JPS)
     - Estudar pra GA pq as nossas aulas vão começar né (gustavo)
     - Essa lista só aumenta, putz (gustavo)
 
