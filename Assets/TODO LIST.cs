@@ -2,7 +2,7 @@
 
     To do List
 
-    - Fazer mudar de pista com o "slide" não com toque (toque vai servirpra atirar/ fzr qqlr outra coisa)(JPS)(DONE)
+    - Modificar o movimento do player para usar métodos mobile
     - Preparar a pontuação no HUD
     - Documentar um pouco o jogo (GDD)
     - Fazer o Script das cores

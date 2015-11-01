@@ -6,6 +6,7 @@ public class MovimentoDoPlayer : MonoBehaviour
     public GameObject[] pistasEmOrdem;
     private Rigidbody2D playerRigidibody;
     private GameObject pistaAtual;
+    private Animator playerAnimator;
 
     // Força do "pulo" que a nave dá de uma pista pra outra. Isso vai afetar a velocidade com que isso acontece
     public float forcaPulo;
@@ -14,8 +15,8 @@ public class MovimentoDoPlayer : MonoBehaviour
     private bool pulandoParaEsquerda;
     private int numeroDaPistaNaArray;
     private int framesDelay;
-	private Vector2 posicao1 = new Vector2(0f, 0f);
-	private int swipe = 0;
+    private Vector2 posicao1 = new Vector2(0f, 0f);
+    private int swipe = 0;
 
     // Use this for initialization
     void Start()
@@ -26,6 +27,7 @@ public class MovimentoDoPlayer : MonoBehaviour
         pulandoParaDireita = false;
         pulandoParaEsquerda = false;
         playerRigidibody = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
 
     }
 
@@ -36,28 +38,27 @@ public class MovimentoDoPlayer : MonoBehaviour
         // Estou chamando apenas o movimentoPC pq testei no celular e ele funciona tambem, entao talvez seja melhor usar
         // so ele, uma vez que ele funciona para os dois
         movimentoPC();
-        // movimentoMobile();
 
     }
 
     // Faz o movimento do player pelo mouse, servira mais para proposito de teste, para nao precisar o celular sempre
     void movimentoPC()
     {
-		int identificadorDeSwipe = SwipeDetec();
+        int identificadorDeSwipe = SwipeDetec();
         // Verifica se o botao foi apertado antes de executar o codigo
         if (identificadorDeSwipe != 0)
         {
             //Vector3 posicaoMouseAtual = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (!pulandoParaDireita && !pulandoParaEsquerda)
             {
-				//identificadorDeSwipe = 1 significa um swipe para a direita
+                //identificadorDeSwipe = 1 significa um swipe para a direita
                 if (identificadorDeSwipe == 1 && numeroDaPistaNaArray != pistasEmOrdem.Length - 1)
                 {
                     numeroDaPistaNaArray += 1;
                     pulandoParaDireita = true;
                 }
-				//identificadorDeSwipe = 2 significa um swipe para a esquerda
-				else if (identificadorDeSwipe == 2 && numeroDaPistaNaArray != 0)
+                //identificadorDeSwipe = 2 significa um swipe para a esquerda
+                else if (identificadorDeSwipe == 2 && numeroDaPistaNaArray != 0)
                 {
                     numeroDaPistaNaArray -= 1;
                     pulandoParaEsquerda = true;
@@ -68,11 +69,15 @@ public class MovimentoDoPlayer : MonoBehaviour
         // Aqui ele vai aplicar a força pro player se mexer
         if (pulandoParaEsquerda)
         {
+            // Animação de pulando para a esquerda
+            playerAnimator.SetBool("MudandoPista", true);
             playerRigidibody.AddForce(new Vector2(-forcaPuloDeltaTime, 0));
         }
         // Aqui ele vai aplicar a força pro player se mexer, na direção contrária
         else if (pulandoParaDireita)
         {
+            // Animação de pulando para a direita
+            playerAnimator.SetBool("MudandoPista", true);
             playerRigidibody.AddForce(new Vector2(forcaPuloDeltaTime, 0));
         }
 
@@ -85,6 +90,8 @@ public class MovimentoDoPlayer : MonoBehaviour
             pistaAtual = pistasEmOrdem[numeroDaPistaNaArray];
             Vector3 temp = new Vector3(pistaAtual.transform.position.x, transform.position.y, transform.position.z);
             pulandoParaEsquerda = false;
+            // Volta pra animação "idle"
+            playerAnimator.SetBool("MudandoPista", false);
             transform.position = temp;
             framesDelay = 5;
 
@@ -94,6 +101,7 @@ public class MovimentoDoPlayer : MonoBehaviour
             pistaAtual = pistasEmOrdem[numeroDaPistaNaArray];
             Vector3 temp = new Vector3(pistaAtual.transform.position.x, transform.position.y, transform.position.z);
             pulandoParaDireita = false;
+            playerAnimator.SetBool("MudandoPista", false);
             transform.position = temp;
             framesDelay = 5;
 
@@ -109,39 +117,48 @@ public class MovimentoDoPlayer : MonoBehaviour
 
 
     }
-	public Vector2 POSAtual(){
-		Vector2 posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Vector2 pos1 = new Vector2(posMouse.x, posMouse.y);
-		return pos1;
-	}
-	public int SwipeDetec(){
-		//Coloca o valor inicial do swipe, para caso ele seja alterado volte ao normal depois quando o codigo for
-		//executado novamente
-		swipe = 0;
-		//Pega a posiçao de quando o botao e apertado(ou quando inicia-se o "touch")
-		if (Input.GetMouseButtonDown(0)){
-			//Debug.Log("Apertou");
-			posicao1 = POSAtual();
-			//Pega a posiçao de quando solta-se o botao(ou quando termina-se o "touch")
-		}else if (Input.GetMouseButtonUp(0)){
-			//Debug.Log("Soltou");
-			Vector2 posicao2 = POSAtual();
-			//Detecta se ocorreu um SWIPE(se deslizou)
-			if (posicao1.x != posicao2.x){
-				//a diferença server para o script funcionar no celular, ja que as mediçoes nao sao precisas
-				float diferenca = (posicao1.x - posicao2.x);
-				if (posicao1.x < posicao2.x && diferenca < -1){
-					//Debug.Log("Swipe para a Direita");
-					//Swipe = 1 significa um swipe para a direita
-					swipe = 1;
-				}else if (posicao1.x > posicao2.x && diferenca > 1){
-					//Debug.Log("Swipe para a Esquerda");
-					//Swipe = 1 significa um swipe para a esquerda
-					swipe = 2;
-				}
-			}
-		}
-		return swipe;
-	}
-    
+    public Vector2 POSAtual()
+    {
+        Vector2 posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 pos1 = new Vector2(posMouse.x, posMouse.y);
+        return pos1;
+    }
+    public int SwipeDetec()
+    {
+        //Coloca o valor inicial do swipe, para caso ele seja alterado volte ao normal depois quando o codigo for
+        //executado novamente
+        swipe = 0;
+        //Pega a posiçao de quando o botao e apertado(ou quando inicia-se o "touch")
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Debug.Log("Apertou");
+            posicao1 = POSAtual();
+            //Pega a posiçao de quando solta-se o botao(ou quando termina-se o "touch")
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            //Debug.Log("Soltou");
+            Vector2 posicao2 = POSAtual();
+            //Detecta se ocorreu um SWIPE(se deslizou)
+            if (posicao1.x != posicao2.x)
+            {
+                //a diferença server para o script funcionar no celular, ja que as mediçoes nao sao precisas
+                float diferenca = (posicao1.x - posicao2.x);
+                if (posicao1.x < posicao2.x && diferenca < -1)
+                {
+                    //Debug.Log("Swipe para a Direita");
+                    //Swipe = 1 significa um swipe para a direita
+                    swipe = 1;
+                }
+                else if (posicao1.x > posicao2.x && diferenca > 1)
+                {
+                    //Debug.Log("Swipe para a Esquerda");
+                    //Swipe = 1 significa um swipe para a esquerda
+                    swipe = 2;
+                }
+            }
+        }
+        return swipe;
+    }
+
 }
