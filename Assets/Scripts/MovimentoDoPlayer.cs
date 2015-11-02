@@ -6,13 +6,13 @@ public class MovimentoDoPlayer : MonoBehaviour
     public GameObject[] pistasEmOrdem;
     private Rigidbody2D playerRigidibody;
     private GameObject pistaAtual;
-    private Animator playerAnimator;
+
 
     // Força do "pulo" que a nave dá de uma pista pra outra. Isso vai afetar a velocidade com que isso acontece
     public float forcaPulo;
     private float forcaPuloDeltaTime;
-    private bool pulandoParaDireita;
-    private bool pulandoParaEsquerda;
+    public bool pulandoParaDireita;
+    public bool pulandoParaEsquerda;
     private int numeroDaPistaNaArray;
     private int framesDelay;
     private Vector2 posicao1 = new Vector2(0f, 0f);
@@ -27,7 +27,6 @@ public class MovimentoDoPlayer : MonoBehaviour
         pulandoParaDireita = false;
         pulandoParaEsquerda = false;
         playerRigidibody = GetComponent<Rigidbody2D>();
-        playerAnimator = GetComponent<Animator>();
 
     }
 
@@ -69,29 +68,23 @@ public class MovimentoDoPlayer : MonoBehaviour
         // Aqui ele vai aplicar a força pro player se mexer
         if (pulandoParaEsquerda)
         {
-            // Animação de pulando para a esquerda
-            playerAnimator.SetBool("MudandoPista", true);
             playerRigidibody.AddForce(new Vector2(-forcaPuloDeltaTime, 0));
         }
         // Aqui ele vai aplicar a força pro player se mexer, na direção contrária
         else if (pulandoParaDireita)
         {
-            // Animação de pulando para a direita
-            playerAnimator.SetBool("MudandoPista", true);
             playerRigidibody.AddForce(new Vector2(forcaPuloDeltaTime, 0));
         }
 
 
         // Aqui ele vai ver se o player já chegou na pista certa. Se já, o player vai ter passado um pouco de onde ele devia estar
         // O vetor temp vai ser criado pra ajeitar isso pegando a posição x da pista e botando o player lá de volta no mesmo frame
-        // É importanto que a pista atual seja declarada só aqui, pro player não ficar 'preso' em uma só
+        // É importante que a pista atual seja declarada só aqui, pro player não ficar 'preso' em uma só
         if (pulandoParaEsquerda && transform.position.x < pistasEmOrdem[numeroDaPistaNaArray].transform.position.x)
         {
             pistaAtual = pistasEmOrdem[numeroDaPistaNaArray];
             Vector3 temp = new Vector3(pistaAtual.transform.position.x, transform.position.y, transform.position.z);
             pulandoParaEsquerda = false;
-            // Volta pra animação "idle"
-            playerAnimator.SetBool("MudandoPista", false);
             transform.position = temp;
             framesDelay = 5;
 
@@ -101,7 +94,7 @@ public class MovimentoDoPlayer : MonoBehaviour
             pistaAtual = pistasEmOrdem[numeroDaPistaNaArray];
             Vector3 temp = new Vector3(pistaAtual.transform.position.x, transform.position.y, transform.position.z);
             pulandoParaDireita = false;
-            playerAnimator.SetBool("MudandoPista", false);
+
             transform.position = temp;
             framesDelay = 5;
 
@@ -117,7 +110,7 @@ public class MovimentoDoPlayer : MonoBehaviour
 
 
     }
-    public Vector2 POSAtual()
+    private Vector2 POSAtual()
     {
         Vector2 posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 pos1 = new Vector2(posMouse.x, posMouse.y);
