@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\CarregaCena.cs" />
     <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
     <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
+    <Compile Include="Assets\Scripts\MovimentoDosMeteoros.cs" />
     <Compile Include="Assets\Scripts\ResolutionCameraFixer.cs" />
     <Compile Include="Assets\Scripts\Rotacao.cs" />
     <Compile Include="Assets\Scripts\Sair.cs" />

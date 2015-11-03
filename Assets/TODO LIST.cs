@@ -8,12 +8,13 @@
     - Fazer o Script das cores
     - Fazer as imagens para o script das cores (progressivo, com 4 etapas)
     - Fazer os obstáculos vindo (gustavo)
-    - Fazer perder quando bater em um obstáculo    
+        - fazer script do instantiate
+        - preparar padrões de obstáculos
+    - Não fazer os botões por canvas.
+    - Fazer perder quando bater em um obstáculo
     - Preparar os tiros 
     - Fazer um menu(JPS)
     - Fazer um pause menu (JPS)
-    - Estudar pra GA pq as nossas aulas vão começar né (gustavo)
-    - Essa lista só aumenta, putz (gustavo)
-
+   
 
 **/
