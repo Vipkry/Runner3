@@ -3,8 +3,9 @@ using System.Collections;
 
 public class MovimentoDosMeteoros : MonoBehaviour {
 
-    //private Transform meteorTransform;
+    
     private Rigidbody2D meteorRigidbody;
+    public Transform transformMeteorCollector;
 
     public float force;
     private float forceDeltaTime;
@@ -12,7 +13,6 @@ public class MovimentoDosMeteoros : MonoBehaviour {
 	void Start () {
 
         meteorRigidbody = GetComponent<Rigidbody2D>();
-       // meteorTransform = GetComponent<Transform>();
 
 	}
 	
@@ -21,5 +21,6 @@ public class MovimentoDosMeteoros : MonoBehaviour {
 
         forceDeltaTime = force * Time.deltaTime;
         meteorRigidbody.AddForce(new Vector2(0,-forceDeltaTime));
+
 	}
 }

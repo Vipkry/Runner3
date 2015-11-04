@@ -68,15 +68,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AnimationController.cs" />
-    <Compile Include="Assets\Scripts\CarregaCena.cs" />
+    <Compile Include="Assets\Scripts\Meteoros\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\Meteoros\MovimentoDosMeteoros.cs" />
+    <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
     <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
     <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
-    <Compile Include="Assets\Scripts\MovimentoDosMeteoros.cs" />
-    <Compile Include="Assets\Scripts\ResolutionCameraFixer.cs" />
-    <Compile Include="Assets\Scripts\Rotacao.cs" />
-    <Compile Include="Assets\Scripts\Sair.cs" />
-    <Compile Include="Assets\Scripts\Transparencia.cs" />
+    <Compile Include="Assets\Scripts\Resolution fixers\ResolutionCameraFixer.cs" />
+    <Compile Include="Assets\Scripts\System\CarregaCena.cs" />
+    <Compile Include="Assets\Scripts\System\Rotacao.cs" />
+    <Compile Include="Assets\Scripts\System\Sair.cs" />
+    <Compile Include="Assets\Scripts\System\Transparencia.cs" />
     <Compile Include="Assets\TODO LIST.cs" />
   </ItemGroup>
   <ItemGroup>

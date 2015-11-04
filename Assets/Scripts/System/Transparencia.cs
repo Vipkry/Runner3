@@ -18,12 +18,9 @@ public class Transparencia : MonoBehaviour
             renderizador.color = new Color(1f, 1f, 1f, transparencia);
         }
 
-#pragma warning disable CS0168 // Variable is declared but never used
-        catch (MissingComponentException e)
-#pragma warning restore CS0168 // Variable is declared but never used
+
+        catch (MissingComponentException)
         {
-
-
             // Pega o MeshRenderer e muda os pixels alpha caso não haja SpriteRenderer no GameObject
             MeshRenderer tempMeshRenderer = GetComponent<MeshRenderer>();
             Material temp = tempMeshRenderer.material;
