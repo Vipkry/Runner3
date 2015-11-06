@@ -3,11 +3,18 @@ using System.Collections;
 
 public class ControllingCameraAspectScript : MonoBehaviour
 {
-    
 
     // Use this for initialization
     void Start()
     {
+        
+       
+
+    }
+
+    void Update() {
+
+
         // set the desired aspect ratio (the values in this example are
         // hard-coded for 2:3, but you could make them into public
         // variables instead so you can set them at design time)
@@ -47,6 +54,9 @@ public class ControllingCameraAspectScript : MonoBehaviour
 
             camera.rect = rect;
         }
+
+        Screen.SetResolution(Screen.height, Screen.width, true);
+
     }
 
 }

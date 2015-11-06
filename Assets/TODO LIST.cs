@@ -10,7 +10,6 @@
     - Fazer os obstáculos vindo (gustavo)
         - fazer script do instantiate
         - preparar padrões de obstáculos
-    - Não fazer os botões por canvas.
     - Fazer perder quando bater em um obstáculo
     - Preparar os tiros 
     - Fazer um menu(JPS)

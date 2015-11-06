@@ -73,7 +73,7 @@
     <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
     <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
     <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
-    <Compile Include="Assets\Scripts\Resolution fixers\ResolutionCameraFixer.cs" />
+    <Compile Include="Assets\Scripts\Resolution fixers\ControllingCameraAspectScript.cs" />
     <Compile Include="Assets\Scripts\System\CarregaCena.cs" />
     <Compile Include="Assets\Scripts\System\Rotacao.cs" />
     <Compile Include="Assets\Scripts\System\Sair.cs" />
