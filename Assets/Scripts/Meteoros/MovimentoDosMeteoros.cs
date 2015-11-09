@@ -5,7 +5,7 @@ public class MovimentoDosMeteoros : MonoBehaviour {
 
     
     private Rigidbody2D meteorRigidbody;
-    public Transform transformMeteorCollector;
+    
 
     public float force;
     private float forceDeltaTime;

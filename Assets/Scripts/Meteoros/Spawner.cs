@@ -49,12 +49,19 @@ public class Spawner : MonoBehaviour
             // Pega o renderer dele, para conseguir a altura
             Renderer novoRenderer = novoMeteoro.GetComponent<Renderer>();
             // Usa o temp para posicionar o novo meteoro em cima do anterior
-            Vector3 temp = new Vector3(transformPistaSelecionada.position.x, transform.position.y + stackTamanho, transform.position.z);
+            Vector3 temp = new Vector3(transformPistaSelecionada.position.x, transform.position.y + stackTamanho + 10f, transform.position.z);
             novoMeteoro.transform.position = temp;
             // Aumenta o stack pro próximo meteoro
             stackTamanho += novoRenderer.bounds.size.y;
 
         }
+
+
+    }
+
+    void padrao1 () {
+
+
 
     }
 }

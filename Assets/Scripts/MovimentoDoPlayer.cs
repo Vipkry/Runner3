@@ -16,11 +16,14 @@ public class MovimentoDoPlayer : MonoBehaviour
     private int numeroDaPistaNaArray;
     private int framesDelay;
     private Vector2 posicao1 = new Vector2(0f, 0f);
-    private int swipe = 0;
+    private int swipe = -1;
+
+    public int identificadorDeSwipe;
 
     // Use this for initialization
     void Start()
     {
+        identificadorDeSwipe = -1;
         framesDelay = 0;
         numeroDaPistaNaArray = 1;
         pistaAtual = pistasEmOrdem[numeroDaPistaNaArray];
@@ -34,6 +37,16 @@ public class MovimentoDoPlayer : MonoBehaviour
     void Update()
     {
         forcaPuloDeltaTime = forcaPulo * Time.deltaTime;
+
+        SwipeDetec();
+        // Atualizar sempre para -1, para indicar que nada foi apertado/ ainda está sendo apertado
+        // Isso vai evitar que o identificador "estacione" em um valor apenas
+        identificadorDeSwipe = -1;
+        // Só altera o identificador de swipe quando tira o dedo / mouse
+        // Isso serve pra não dar update todo frame, conseguindo manipular outras funções apropriadamente
+        if (Input.GetMouseButtonUp(0)) {
+            identificadorDeSwipe = swipe;            
+        }
         // Estou chamando apenas o movimentoPC pq testei no celular e ele funciona tambem, entao talvez seja melhor usar
         // so ele, uma vez que ele funciona para os dois
         movimentoPC();
@@ -42,10 +55,9 @@ public class MovimentoDoPlayer : MonoBehaviour
 
     // Faz o movimento do player pelo mouse, servira mais para proposito de teste, para nao precisar o celular sempre
     void movimentoPC()
-    {
-        int identificadorDeSwipe = SwipeDetec();
+    {       
         // Verifica se o botao foi apertado antes de executar o codigo
-        if (identificadorDeSwipe != 0)
+        if (identificadorDeSwipe != -1)
         {
             //Vector3 posicaoMouseAtual = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (!pulandoParaDireita && !pulandoParaEsquerda)
@@ -116,20 +128,23 @@ public class MovimentoDoPlayer : MonoBehaviour
         Vector2 pos1 = new Vector2(posMouse.x, posMouse.y);
         return pos1;
     }
+
     public int SwipeDetec()
     {
         //Coloca o valor inicial do swipe, para caso ele seja alterado volte ao normal depois quando o codigo for
         //executado novamente
-        swipe = 0;
+        swipe = -1;
         //Pega a posiçao de quando o botao e apertado(ou quando inicia-se o "touch")
         if (Input.GetMouseButtonDown(0))
         {
             //Debug.Log("Apertou");
             posicao1 = POSAtual();
-            //Pega a posiçao de quando solta-se o botao(ou quando termina-se o "touch")
         }
+        //Pega a posiçao de quando solta-se o botao(ou quando termina-se o "touch")
         else if (Input.GetMouseButtonUp(0))
         {
+            // Swipe = 0 significa só um toque sem swipe
+            swipe = 0;
             //Debug.Log("Soltou");
             Vector2 posicao2 = POSAtual();
             //Detecta se ocorreu um SWIPE(se deslizou)
@@ -146,7 +161,7 @@ public class MovimentoDoPlayer : MonoBehaviour
                 else if (posicao1.x > posicao2.x && diferenca > 1)
                 {
                     //Debug.Log("Swipe para a Esquerda");
-                    //Swipe = 1 significa um swipe para a esquerda
+                    //Swipe = 2 significa um swipe para a esquerda
                     swipe = 2;
                 }
             }
