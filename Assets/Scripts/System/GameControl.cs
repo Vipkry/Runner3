@@ -9,9 +9,7 @@ public class GameControl : MonoBehaviour {
 	public static GameControl controleGeral;
 	public float ValorTransparencia;
 
-	//public float vida;
-	//public float experiencia;
-	
+	//Verifica se ja existe um GameControl, se sim, destroi ele e torna este o GameControl
 	void Awake () {
 		if (controleGeral == null)
 		{
@@ -24,18 +22,7 @@ public class GameControl : MonoBehaviour {
 		}
 	}
 
-	/**public void Save()
-	{
-		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create(Application.persistentDataPath + "/geralInfo.dat");
-		DadosGerais dados = new DadosGerais();
-		dados.vida = vida;
-		dados.experiencia = experiencia;
-		bf.Serialize(file, dados);
-		file.Close();
-	}**/
-
-
+	//Salva os dados em um arquivo binario
 	public void SaveSettings (){
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(Application.persistentDataPath + "/settingsInfo.dat");
@@ -45,7 +32,7 @@ public class GameControl : MonoBehaviour {
 		file.Close();
 		Debug.Log("Salvou" + ValorTransparencia);
 	}
-
+	//Carrega os dados de um arquivo binario
 	public void LoadSettings()
 	{
 		if(File.Exists(Application.persistentDataPath + "/settingsInfo.dat"))
@@ -56,28 +43,11 @@ public class GameControl : MonoBehaviour {
 			ValorTransparencia = dados.ValorTransparencia;
 		}
 	}
-	/**public void Load()
-	{
-		if(File.Exists(Application.persistentDataPath + "/geralInfo.dat"))
-		{
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open (Application.persistentDataPath + "/geralInfo.dat", FileMode.Open);
-			DadosGerais dados = (DadosGerais)bf.Deserialize(file);
-			vida = dados.vida;
-			experiencia = dados.experiencia;
-		}
-	}**/
 
 }
+//Classe que permite uma "serializaçao"
 [Serializable]
 class SettingsData
 {
 	public float ValorTransparencia;
 }
-
-/*[Serializable]
-class DadosGerais
-{
-	public float vida;
-	public float experiencia;
-}**/

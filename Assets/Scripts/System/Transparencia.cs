@@ -5,11 +5,19 @@ public class Transparencia : MonoBehaviour
 {
     //Este script controla a transparencia das sprites(criado para o HUD)
     // transparencia, 0 = 100% transparente , 0.3 = 70% transparente, 0.5 = 50% transparente, 1 = 0% transparente
-    public float transparencia;
-
-    // Update is called once per frame
+	public float transparencia;
+	//transparencia = GameObject.Find("GameControl").GetComponent<GameControl>().ValorTransparencia;
+	
+    
+	void Start()
+	{
+		// Carrega o valor da transparencia ja carregado pelo AutoLoad no GameControl
+		transparencia = GameObject.Find("GameControl").GetComponent<GameControl>().ValorTransparencia;
+	}
+	// Update is called once per frame
     void Update()
     {
+
 
         try
         {
