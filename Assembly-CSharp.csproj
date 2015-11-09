@@ -45,19 +45,34 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CarregaCena.cs" />
+     <Compile Include="Assets\Scripts\Meteoros\Destroyer.cs" />
+     <Compile Include="Assets\Scripts\Meteoros\MovimentoDosMeteoros.cs" />
+     <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
      <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
      <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
-     <Compile Include="Assets\Scripts\ResolutionCameraFixer.cs" />
-     <Compile Include="Assets\Scripts\Rotacao.cs" />
-     <Compile Include="Assets\Scripts\Sair.cs" />
-     <Compile Include="Assets\Scripts\Transparencia.cs" />
+     <Compile Include="Assets\Scripts\Resolution fixers\ControllingCameraAspectScript.cs" />
+     <Compile Include="Assets\Scripts\System\Auxiliares\AutoLoadSettings.cs" />
+     <Compile Include="Assets\Scripts\System\Auxiliares\CarregaCena.cs" />
+     <Compile Include="Assets\Scripts\System\Auxiliares\Sair.cs" />
+     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
+     <Compile Include="Assets\Scripts\System\Auxiliares\SettingTexts.cs" />
+     <Compile Include="Assets\Scripts\System\GameControl.cs" />
+     <Compile Include="Assets\Scripts\System\Rotacao.cs" />
+     <Compile Include="Assets\Scripts\System\SliderControl.cs" />
+     <Compile Include="Assets\Scripts\System\Transparencia.cs" />
      <Compile Include="Assets\TODO LIST.cs" />
+     <None Include="Assets\Sounds\Music\Lembrar de Creditar.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
