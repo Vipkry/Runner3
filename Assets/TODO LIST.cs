@@ -2,6 +2,7 @@
 
     To do List
 
+    - Falar com Gustavo Lopes
     - Modificar o movimento do player para usar métodos mobile para testar a performance
     - Preparar a pontuação no HUD
     - Documentar um pouco o jogo (GDD)
@@ -14,11 +15,8 @@
         - preparar padrões de obstáculos
     - Fazer perder quando bater em um obstáculo
     - Preparar os tiros (gustavo)
-        - Tiro verde virar amarelo
-        - Fazer com que tenha reload, com métodos trigger
         - fazer com que se adapte à cor que o jogador seleciona (ou pelo menos preparar pra isso)
         - Animação de destruição dos meteoros
-        - Destruir apenas 1 meteoro
     - Fazer um menu(JPS)
         - Com Loja
     - Fazer a loja (mais tarde, depois que a cena principal tiver completa)

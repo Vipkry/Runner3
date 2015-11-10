@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Lasers\LaserCollector.cs" />
     <Compile Include="Assets\Scripts\Lasers\LaserScript.cs" />
     <Compile Include="Assets\Scripts\Lasers\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Lasers\PlayerLaserController.cs" />
     <Compile Include="Assets\Scripts\Meteoros\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Meteoros\MovimentoDosMeteoros.cs" />
     <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
@@ -79,9 +80,13 @@
     <Compile Include="Assets\Scripts\Resolution fixers\ControllingCameraAspectScript.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\AutoLoadSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\CarregaCena.cs" />
+    <Compile Include="Assets\Scripts\System\Auxiliares\DontDestroyPLS.cs" />
+    <Compile Include="Assets\Scripts\System\Auxiliares\Pause.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\Sair.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\SettingTexts.cs" />
+    <Compile Include="Assets\Scripts\System\Auxiliares\unPause.cs" />
+    <Compile Include="Assets\Scripts\System\FixedTransparency.cs" />
     <Compile Include="Assets\Scripts\System\GameControl.cs" />
     <Compile Include="Assets\Scripts\System\Rotacao.cs" />
     <Compile Include="Assets\Scripts\System\SliderControl.cs" />
