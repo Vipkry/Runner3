@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour {
 
 	public static GameControl controleGeral;
 	public float ValorTransparencia;
+	public float ValorMusica;
 
 	//Verifica se ja existe um GameControl, se sim, destroi ele e torna este o GameControl
 	void Awake () {
@@ -28,9 +29,9 @@ public class GameControl : MonoBehaviour {
 		FileStream file = File.Create(Application.persistentDataPath + "/settingsInfo.dat");
 		SettingsData dados = new SettingsData();
 		dados.ValorTransparencia = ValorTransparencia;
+		dados.ValorMusica = ValorMusica;
 		bf.Serialize(file, dados);
 		file.Close();
-		Debug.Log("Salvou" + ValorTransparencia);
 	}
 	//Carrega os dados de um arquivo binario
 	public void LoadSettings()
@@ -41,6 +42,8 @@ public class GameControl : MonoBehaviour {
 			FileStream file = File.Open (Application.persistentDataPath + "/settingsInfo.dat", FileMode.Open);
 			SettingsData dados = (SettingsData)bf.Deserialize(file);
 			ValorTransparencia = dados.ValorTransparencia;
+			ValorMusica = dados.ValorMusica;
+			file.Close();
 		}
 	}
 
@@ -50,4 +53,5 @@ public class GameControl : MonoBehaviour {
 class SettingsData
 {
 	public float ValorTransparencia;
+	public float ValorMusica;
 }
