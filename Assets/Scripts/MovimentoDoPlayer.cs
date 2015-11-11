@@ -6,7 +6,8 @@ public class MovimentoDoPlayer : MonoBehaviour
     public GameObject[] pistasEmOrdem;
     private Rigidbody2D playerRigidibody;
     private GameObject pistaAtual;
-
+    public Renderer spaceRoadRenderer;
+    public GameObject pauseSystem;
 
     // Força do "pulo" que a nave dá de uma pista pra outra. Isso vai afetar a velocidade com que isso acontece
     public float forcaPulo;
@@ -17,6 +18,8 @@ public class MovimentoDoPlayer : MonoBehaviour
     private int framesDelay;
     private Vector2 posicao1 = new Vector2(0f, 0f);
     private int swipe = -1;
+    private bool mouseButtonDownDentroDaPista;
+    private bool estaPausado;
 
     public int identificadorDeSwipe;
 
@@ -38,14 +41,20 @@ public class MovimentoDoPlayer : MonoBehaviour
     {
         forcaPuloDeltaTime = forcaPulo * Time.deltaTime;
 
-        SwipeDetec();
+        // Vai evitar o bug de atirar ou mudar de pista enquanto estiver no menu de pausa
+        estaPausado = pauseSystem.GetComponent<PauseSystem>().estaPausado;
+        if (!estaPausado)
+        {
+            SwipeDetec();
+        }
         // Atualizar sempre para -1, para indicar que nada foi apertado/ ainda está sendo apertado
         // Isso vai evitar que o identificador "estacione" em um valor apenas
         identificadorDeSwipe = -1;
         // Só altera o identificador de swipe quando tira o dedo / mouse
         // Isso serve pra não dar update todo frame, conseguindo manipular outras funções apropriadamente
-        if (Input.GetMouseButtonUp(0)) {
-            identificadorDeSwipe = swipe;            
+        if (Input.GetMouseButtonUp(0))
+        {
+            identificadorDeSwipe = swipe;
         }
         // Estou chamando apenas o movimentoPC pq testei no celular e ele funciona tambem, entao talvez seja melhor usar
         // so ele, uma vez que ele funciona para os dois
@@ -55,7 +64,7 @@ public class MovimentoDoPlayer : MonoBehaviour
 
     // Faz o movimento do player pelo mouse, servira mais para proposito de teste, para nao precisar o celular sempre
     void movimentoPC()
-    {       
+    {
         // Verifica se o botao foi apertado antes de executar o codigo
         if (identificadorDeSwipe != -1)
         {
@@ -129,20 +138,35 @@ public class MovimentoDoPlayer : MonoBehaviour
         return pos1;
     }
 
+    // função serve para verificar se o touch/ mouse está em cima da pista para evitar bugs quando utilizar a hud
+    private bool mouseEmCimaDaPista()
+    {
+
+        bool dentroDaPista = false;
+        if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < spaceRoadRenderer.bounds.center.x + spaceRoadRenderer.bounds.extents.x && Camera.main.ScreenToWorldPoint(Input.mousePosition).x > spaceRoadRenderer.bounds.center.x - spaceRoadRenderer.bounds.extents.x)
+        {
+            dentroDaPista = true;
+        }
+        return dentroDaPista;
+
+    }
+
     public int SwipeDetec()
     {
+
         //Coloca o valor inicial do swipe, para caso ele seja alterado volte ao normal depois quando o codigo for
         //executado novamente
         swipe = -1;
-        //Pega a posiçao de quando o botao e apertado(ou quando inicia-se o "touch")
-        if (Input.GetMouseButtonDown(0))
+        //Pega a posiçao de quando o botao e apertado(ou quando inicia-se o "touch")        
+        if (Input.GetMouseButtonDown(0) && mouseEmCimaDaPista())
         {
-            //Debug.Log("Apertou");
             posicao1 = POSAtual();
+            mouseButtonDownDentroDaPista = true;
         }
         //Pega a posiçao de quando solta-se o botao(ou quando termina-se o "touch")
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && mouseButtonDownDentroDaPista)
         {
+            mouseButtonDownDentroDaPista = false;
             // Swipe = 0 significa só um toque sem swipe
             swipe = 0;
             //Debug.Log("Soltou");
@@ -152,13 +176,13 @@ public class MovimentoDoPlayer : MonoBehaviour
             {
                 //a diferença server para o script funcionar no celular, ja que as mediçoes nao sao precisas
                 float diferenca = (posicao1.x - posicao2.x);
-                if (posicao1.x < posicao2.x && diferenca < -1)
+                if (posicao1.x < posicao2.x && diferenca < -1.5)
                 {
                     //Debug.Log("Swipe para a Direita");
                     //Swipe = 1 significa um swipe para a direita
                     swipe = 1;
                 }
-                else if (posicao1.x > posicao2.x && diferenca > 1)
+                else if (posicao1.x > posicao2.x && diferenca > 1.5)
                 {
                     //Debug.Log("Swipe para a Esquerda");
                     //Swipe = 2 significa um swipe para a esquerda
@@ -166,7 +190,9 @@ public class MovimentoDoPlayer : MonoBehaviour
                 }
             }
         }
+
         return swipe;
     }
+
 
 }

@@ -2,7 +2,6 @@
 
     To do List
 
-    - Falar com Gustavo Lopes
     - Modificar o movimento do player para usar métodos mobile para testar a performance
     - Preparar a pontuação no HUD
     - Documentar um pouco o jogo (GDD)

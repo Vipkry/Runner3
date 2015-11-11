@@ -57,6 +57,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -81,15 +87,17 @@
     <Compile Include="Assets\Scripts\System\Auxiliares\AutoLoadSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\CarregaCena.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\DontDestroyPLS.cs" />
-    <Compile Include="Assets\Scripts\System\Auxiliares\Pause.cs" />
+    <Compile Include="Assets\Scripts\System\Auxiliares\PauseSystem.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\Sair.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
-    <Compile Include="Assets\Scripts\System\Auxiliares\SettingTexts.cs" />
-    <Compile Include="Assets\Scripts\System\Auxiliares\unPause.cs" />
+    <Compile Include="Assets\Scripts\System\Auxiliares\musicController.cs" />
     <Compile Include="Assets\Scripts\System\FixedTransparency.cs" />
     <Compile Include="Assets\Scripts\System\GameControl.cs" />
     <Compile Include="Assets\Scripts\System\Rotacao.cs" />
-    <Compile Include="Assets\Scripts\System\SliderControl.cs" />
+    <Compile Include="Assets\Scripts\System\Sliders\SliderControlMusic.cs" />
+    <Compile Include="Assets\Scripts\System\Sliders\SliderControlTransp.cs" />
+    <Compile Include="Assets\Scripts\System\Textos\MusicText.cs" />
+    <Compile Include="Assets\Scripts\System\Textos\SettingTexts.cs" />
     <Compile Include="Assets\Scripts\System\Transparencia.cs" />
     <Compile Include="Assets\TODO LIST.cs" />
   </ItemGroup>
