@@ -9,38 +9,49 @@ public class Spawner : MonoBehaviour
     public GameObject[] meteoros;
     public Transform[] transformsDasPistas;
     public Transform transformMeteorCollector;
+    private GameObject ultimoMeteoro;
+    private MovimentoDosMeteoros ultimoMeteoroMovimentoScript;
+
     public float delayTime;
+    // Stack para botar um em cima do outro, de acordo com o tamanho de cada um
+    float stackTamanho;
 
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(delay());
+
+        stackTamanho = 0;
+
         if (delayTime == 0)
         {
             delayTime = 2f;
         }
+
+        padrao3();
+
     }
 
-
-    IEnumerator delay()
+    void Update()
     {
-        yield return new WaitForSeconds(delayTime);
 
-        multiplos(4);
+        ultimoMeteoroMovimentoScript = ultimoMeteoro.GetComponent<MovimentoDosMeteoros>();
 
-        StartCoroutine(delay());
+        if (ultimoMeteoroMovimentoScript.atingiuOLaserCollector)
+        {
+
+            padrao3();
+
+
+        }
+
     }
 
 
-    // Cria multiplos asteróides um atrás do outro, na quantidade desejada
-    void multiplos(int quantidade)
+    // Cria multiplos asteróides um atrás do outro, na quantidade desejada e na vertical
+    void multiplosVerticais(int quantidade, int pista, bool horizontal = false)
     {
         // Seleciona a pista em que vai ser spawnado o meteoro aleatoriamente
-        int pistaSelecionada = Random.Range(0, transformsDasPistas.Length);
-        Transform transformPistaSelecionada = transformsDasPistas[pistaSelecionada];
-
-        // Stack para botar um em cima do outro, de acordo com o tamanho de cada um
-        float stackTamanho = 0;
+        Transform transformPistaSelecionada = transformsDasPistas[pista - 1];
 
         for (int i = 0; i < quantidade; i++)
         {
@@ -49,19 +60,147 @@ public class Spawner : MonoBehaviour
             // Pega o renderer dele, para conseguir a altura
             Renderer novoRenderer = novoMeteoro.GetComponent<Renderer>();
             // Usa o temp para posicionar o novo meteoro em cima do anterior
-            Vector3 temp = new Vector3(transformPistaSelecionada.position.x, transform.position.y + stackTamanho + 10f, transform.position.z);
+            Vector3 temp = new Vector3(transformPistaSelecionada.position.x, transform.position.y + stackTamanho + 6f, transform.position.z);
             novoMeteoro.transform.position = temp;
             // Aumenta o stack pro próximo meteoro
-            stackTamanho += novoRenderer.bounds.size.y;
+            stackTamanho += horizontal ? 0 : novoRenderer.bounds.size.y;
+
+            if (i == quantidade - 1)
+            {
+
+                ultimoMeteoro = novoMeteoro;
+                MovimentoDosMeteoros ultimoMeteoroScript = ultimoMeteoro.GetComponent<MovimentoDosMeteoros>();
+                ultimoMeteoroScript.ultimoMeteoro = true;
+            }
 
         }
 
 
     }
 
-    void padrao1 () {
+    void multiplosHorizontais(int quantidadeVerticais, bool pista1 = false, bool pista2 = false, bool pista3 = false) {
 
+
+        for (int i = 0; i < quantidadeVerticais; i++) {
+
+            if (pista1) {
+                
+                multiplosVerticais(1,1, true);        
+
+            }
+            if (pista2)
+            {
+                
+                multiplosVerticais(1, 2, true);
+
+            }
+            if (pista3)
+            {
+                
+                multiplosVerticais(1, 3, true);
+
+            }
+            Renderer ultimoMeteoroRenderer = ultimoMeteoro.GetComponent<Renderer>();
+            stackTamanho += ultimoMeteoroRenderer.bounds.size.y;
+        }
+
+    }
+
+    // Adiciona a quantidade de espaços desejada no stack tamanho para ajuda na elaboração dos padrões
+    void espaco(float quantidade)
+    {
+
+        Renderer ultimoMeteoroRenderer = ultimoMeteoro.GetComponent<Renderer>();
+        float espacoAdd = ultimoMeteoroRenderer.bounds.size.y;
+        espacoAdd *= quantidade;
+        stackTamanho += espacoAdd;
+    }
+
+    void padrao1()
+    {
+        stackTamanho = 0;
+
+        int random1 = Random.Range(1, 4);
+        multiplosVerticais(2, random1);
+        multiplosVerticais(2, 2);
+        int random2;
+
+        if (random1 == 2)
+        {
+
+            random2 = Random.Range(1, 4);
+            if (random2 == 2)
+            {
+                int randomAux = Random.Range(0, 100);
+                random2 = randomAux > 50 ? 3 : 1;
+            }
+
+        }
+        else
+        {
+
+            random2 = random1;
+
+        }
+
+        multiplosVerticais(2, random2);
+        
+
+        int random3 = random2 == 1 ? 3 : 1;
+
+        multiplosVerticais(2, random3);
 
 
     }
+
+    void padrao2() {
+
+        stackTamanho = 0;
+        int random1 = Random.Range(0, 100);
+        if (random1 >= 50) {
+
+            multiplosHorizontais(1, false, true, true);
+            multiplosVerticais(4, 2);
+            multiplosHorizontais(1, false, true, true);
+
+        }
+        else {
+
+            multiplosHorizontais(1, true, true, false);
+            multiplosVerticais(4, 2);
+            multiplosHorizontais(1, true, true, false);
+        }      
+    }
+
+    void padrao3() {
+
+        stackTamanho = 0;
+        int random1 = Random.Range(0, 100);
+        if (random1 >= 50) {
+
+            multiplosVerticais(1, 3);
+            multiplosVerticais(1, 2);
+            multiplosVerticais(1, 3);
+            multiplosVerticais(1, 2);
+            multiplosVerticais(2, 3);     
+            multiplosHorizontais(2, true, false, true);
+            multiplosVerticais(2, 3);
+            multiplosVerticais(3, 2);
+
+
+        }else {
+
+            multiplosVerticais(1, 1);
+            multiplosVerticais(1, 2);
+            multiplosVerticais(1, 1);
+            multiplosVerticais(1, 2);
+            multiplosVerticais(2, 1);
+            multiplosHorizontais(2, true, false, true);
+            multiplosVerticais(2, 1);
+            multiplosVerticais(3, 2);
+
+        }
+
+    }
+
 }

@@ -111,9 +111,9 @@ public class LaserScript : MonoBehaviour
         Transform novoTiroTransform2 = novoTiro2.GetComponent<Transform>();
 
         // Esquerda 
-        novoTiroTransform.position = new Vector3(playerRenderer.bounds.center.x - playerRenderer.bounds.extents.x / player.transform.localScale.x, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
+        novoTiroTransform.position = new Vector3(playerRenderer.bounds.center.x - playerRenderer.bounds.extents.x * 3/4 , playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
         // Direita
-        novoTiroTransform2.position = new Vector3(playerRenderer.bounds.center.x + playerRenderer.bounds.extents.x / player.transform.localScale.x, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);        
+        novoTiroTransform2.position = new Vector3(playerRenderer.bounds.center.x + playerRenderer.bounds.extents.x * 3/4, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);        
 
     }
 }

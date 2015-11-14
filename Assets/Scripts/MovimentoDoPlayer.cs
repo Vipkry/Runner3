@@ -176,13 +176,13 @@ public class MovimentoDoPlayer : MonoBehaviour
             {
                 //a diferença server para o script funcionar no celular, ja que as mediçoes nao sao precisas
                 float diferenca = (posicao1.x - posicao2.x);
-                if (posicao1.x < posicao2.x && diferenca < -1.5)
+                if (posicao1.x < posicao2.x && diferenca < -0.9f)
                 {
                     //Debug.Log("Swipe para a Direita");
                     //Swipe = 1 significa um swipe para a direita
                     swipe = 1;
                 }
-                else if (posicao1.x > posicao2.x && diferenca > 1.5)
+                else if (posicao1.x > posicao2.x && diferenca > 0.9f)
                 {
                     //Debug.Log("Swipe para a Esquerda");
                     //Swipe = 2 significa um swipe para a esquerda

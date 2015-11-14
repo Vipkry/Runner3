@@ -88,9 +88,9 @@ public class PlayerController : MonoBehaviour
 
 
         // Esquerda 
-        novoTiroTransform.position = new Vector3(playerRenderer.bounds.center.x - playerRenderer.bounds.extents.x / transform.localScale.x, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
+        novoTiroTransform.position = new Vector3(playerRenderer.bounds.center.x - playerRenderer.bounds.extents.x , playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
         // Direita
-        novoTiroTransform2.position = new Vector3(playerRenderer.bounds.center.x + playerRenderer.bounds.extents.x / transform.localScale.x, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
+        novoTiroTransform2.position = new Vector3(playerRenderer.bounds.center.x + playerRenderer.bounds.extents.x -15 , playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
 
         novoTiroRigidbody.AddForce(new Vector2(0, speedDeltaTime));
         novoTiroRigidbody2.AddForce(new Vector2(0, speedDeltaTime));

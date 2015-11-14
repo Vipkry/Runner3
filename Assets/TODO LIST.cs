@@ -18,9 +18,11 @@
         - Animação de destruição dos meteoros
     - Fazer um menu(JPS)
         - Com Loja
+        - Tudo fica minúsculo!
     - Fazer a loja (mais tarde, depois que a cena principal tiver completa)
     - Fazer um pause menu (JPS)
         - Mostrando: Pontuação, menu, dinheiro do jogo e essas coisas
     - Desenho das moedas (serão moedas? Estava pensando em alguma coisa legal tipo um pequeno foguete ou estrelinhas)
+    - Fazer o tamanho do swipe configurável
 
 **/
