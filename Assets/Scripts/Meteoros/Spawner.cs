@@ -219,10 +219,38 @@ public class Spawner : MonoBehaviour
 
     }
 
-    void padrao5 () {
+    void padrao5() {
 
+	stackTamanho = 0;
+	int randomNumeroDeLinhas = Random.Range(6,13);
+	
+	for (int i = 0; i < randomNumeroDeLinhas; i++){
+		
+		int randomDireitaOuEsquerda = Random.Range(0,100);
+		int randomAux = Random.Range(1,5);
+		
+		// Esse if dificulta que o rendomAux fique com número 4, mas não o impede
+		if (randomAux == 4) {
 
+			randomAux = Random.Range(1,5);
 
-    }
+		}
+		
+		// Vai posicionar na direita ou na esquerda da pista os meteoros
+		if (randomDireitaOuEsquerda >= 50){
+	
+			multiplosHorizontais(randomAux,false, true, true);
+
+		}else {
+	
+			multiplosHorizontais(randomAux,true, true, false);
+	
+		}
+
+		espaco(3);
+
+	}	
+
+}
 
 }
