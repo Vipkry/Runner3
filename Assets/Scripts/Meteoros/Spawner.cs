@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
             delayTime = 2f;
         }
 
-        padrao3();
+        padrao4();
 
     }
 
@@ -39,7 +39,7 @@ public class Spawner : MonoBehaviour
         if (ultimoMeteoroMovimentoScript.atingiuOLaserCollector)
         {
 
-            padrao3();
+            padrao4();
 
 
         }
@@ -200,6 +200,28 @@ public class Spawner : MonoBehaviour
             multiplosVerticais(3, 2);
 
         }
+
+    }
+
+    void padrao4 () {
+
+        stackTamanho = 0;
+        multiplosHorizontais(2,true, false, true);
+        espaco(2);
+        multiplosHorizontais(1, true, false, true);
+        espaco(1);
+        multiplosVerticais(1, 2);
+        espaco(1);
+        multiplosHorizontais(1, true, true, true);
+        espaco(2);
+        multiplosVerticais(1, 2);
+        
+
+    }
+
+    void padrao5 () {
+
+
 
     }
 

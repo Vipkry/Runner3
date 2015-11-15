@@ -68,7 +68,7 @@ public class PlayerLaserController : MonoBehaviour
 
         recarregou = false;
 
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(2f);
 
         recarregou = true;
 
