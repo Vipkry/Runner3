@@ -59,6 +59,8 @@ public class LaserScript : MonoBehaviour
         {
             // Destrói o meteoro
             Destroy(targetGO);
+            // Faz vibrar
+            Vibration.Vibrate(100);
 
         }
 

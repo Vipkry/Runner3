@@ -1,4 +1,4 @@
-/**
+﻿/**
 
     To do List
 
@@ -11,11 +11,15 @@
          ficar com o tiro rainbow bonitinho e o tempo dos buffs bem maiores. Lembrando que esse é um dos objetivos principais do jogo, então tem que satisfazer o jogador   
     - Fazer as imagens para o script das cores (progressivo, com 4 etapas)
     - Fazer os obstáculos vindo (gustavo)
-        - preparar padrões de obstáculos
+        - Fazer com que os padrões venham com algo entre eles
+        - padroes sem nada e com escolhas entre power ups e moedas, após um determinado número (com random) de padroes só com moedas / power up único
+        - Primeiro Padrao ser um power up para completar uma das cores
+        - Desenhar mais padroes
     - Fazer perder quando bater em um obstáculo
     - Preparar os tiros (gustavo)
         - fazer com que se adapte à cor que o jogador seleciona (ou pelo menos preparar pra isso)
         - Animação de destruição dos meteoros
+	- Fazer vibrar quando destruir o meteoro
     - Fazer um menu(JPS)
         - Com Loja
         - Tudo fica minúsculo!
@@ -24,5 +28,6 @@
         - Mostrando: Pontuação, menu, dinheiro do jogo e essas coisas
     - Desenho das moedas (serão moedas? Estava pensando em alguma coisa legal tipo um pequeno foguete ou estrelinhas)
     - Fazer o tamanho do swipe configurável
+    - Hard mode (?) (Por exemplo, o jogo fica rápido em menos tempo, e os padrões ficam mais difíceis (menos espaço entre as "esquinas")
 
 **/
