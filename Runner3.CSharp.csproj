@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -81,8 +75,6 @@
     <Compile Include="Assets\Scripts\Meteoros\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Meteoros\MovimentoDosMeteoros.cs" />
     <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
-    <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
-    <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
     <Compile Include="Assets\Scripts\Resolution fixers\ControllingCameraAspectScript.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\AutoLoadSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\CarregaCena.cs" />
@@ -92,8 +84,11 @@
     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\fps.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\musicController.cs" />
+    <Compile Include="Assets\Scripts\System\ColorSwitches\SwitchScript.cs" />
     <Compile Include="Assets\Scripts\System\FixedTransparency.cs" />
     <Compile Include="Assets\Scripts\System\GameControl.cs" />
+    <Compile Include="Assets\Scripts\System\Movimento\MovimentoDoFundo.cs" />
+    <Compile Include="Assets\Scripts\System\Movimento\MovimentoDoPlayer.cs" />
     <Compile Include="Assets\Scripts\System\Rotacao.cs" />
     <Compile Include="Assets\Scripts\System\Sliders\SliderControlMusic.cs" />
     <Compile Include="Assets\Scripts\System\Sliders\SliderControlTransp.cs" />
