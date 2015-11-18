@@ -10,6 +10,7 @@
         - Conseguiu 4 tiros de todas as cores: Mesmos buffs mas bonus permanente (na 'corrida' atual) de pontuação, além de contar com uma vida a mais (talvez se o jogador comprar um upgrade?)
          ficar com o tiro rainbow bonitinho e o tempo dos buffs bem maiores. Lembrando que esse é um dos objetivos principais do jogo, então tem que satisfazer o jogador   
         - Cada botão teme um som diferente
+        - Fazer botão padrão configurável
     - Fazer as imagens para o script das cores (progressivo, com 4 etapas)
     - Fazer os obstáculos vindo (gustavo)
         - Fazer com que os padrões venham com algo entre eles
@@ -30,5 +31,5 @@
     - Desenho das moedas (serão moedas? Estava pensando em alguma coisa legal tipo um pequeno foguete ou estrelinhas)
     - Fazer o tamanho do swipe configurável
     - Hard mode (?) (Por exemplo, o jogo fica rápido em menos tempo, e os padrões ficam mais difíceis (menos espaço entre as "esquinas"))
-
+        - Hard mode com 4 cores, classic mode com 2 cores
 **/

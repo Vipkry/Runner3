@@ -12,7 +12,6 @@ public class PlayerLaserController : MonoBehaviour
     public GameObject tiroCinzaPreFab;
     public GameObject tiroTransparentePreFab;
     
-    public string corDoTiroAtual;
     public float laserForce;
     public bool podeAtirar;
     private bool recarregou;
@@ -26,7 +25,7 @@ public class PlayerLaserController : MonoBehaviour
         // Pega o objeto do outro script
         movimentoDoPlayerScript = GetComponent<MovimentoDoPlayer>();
         
-        corDoTiroAtual = "Amarelo";
+        
     }
 
     // Update is called once per frame

@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\fps.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\musicController.cs" />
+    <Compile Include="Assets\Scripts\System\ColorSwitches\SwitchController.cs" />
     <Compile Include="Assets\Scripts\System\ColorSwitches\SwitchScript.cs" />
     <Compile Include="Assets\Scripts\System\FixedTransparency.cs" />
     <Compile Include="Assets\Scripts\System\GameControl.cs" />

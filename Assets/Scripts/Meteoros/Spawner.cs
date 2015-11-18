@@ -267,7 +267,7 @@ public class Spawner : MonoBehaviour
     {
 
 
-        int randomNumeroDeLinhas = Random.Range(6, 13);
+        int randomNumeroDeLinhas = Random.Range(4, 10);
 
         for (int i = 0; i < randomNumeroDeLinhas; i++)
         {

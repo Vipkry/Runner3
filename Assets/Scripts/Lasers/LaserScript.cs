@@ -5,6 +5,7 @@ public class LaserScript : MonoBehaviour
 {
 
     private PlayerLaserController playerLaserContollerScript;
+    private SwitchController switchControllerScript;
     private GameObject player;
     private Renderer playerRenderer;
     private GameObject tiroAtual;
@@ -17,7 +18,8 @@ public class LaserScript : MonoBehaviour
 
     void Start()
     {
-        
+        // Pega o objeto do Switch Controller
+        switchControllerScript = GameObject.FindGameObjectWithTag("SwitchController").GetComponent<SwitchController>();
         // Pega o objeto do player
         player = GameObject.FindGameObjectWithTag("Player");
         // Pega o objeto do playerLaserControllerScript
@@ -60,7 +62,7 @@ public class LaserScript : MonoBehaviour
             // Destrói o meteoro
             Destroy(targetGO);
             // Faz vibrar
-            Vibration.Vibrate(100);
+            Vibration.Vibrate(180);
 
         }
 
@@ -75,25 +77,25 @@ public class LaserScript : MonoBehaviour
     private void CorDoTiro()
     {
 
-        if (playerLaserContollerScript.corDoTiroAtual == "Azul")
+        if (switchControllerScript.corAtual == "Azul")
         {
 
             tiroAtual = playerLaserContollerScript.tiroAzulPreFab;
 
         }
-        else if (playerLaserContollerScript.corDoTiroAtual == "Amarelo")
+        else if (switchControllerScript.corAtual == "Amarelo")
         {
 
             tiroAtual = playerLaserContollerScript.tiroAmareloPreFab;
 
         }
-        else if (playerLaserContollerScript.corDoTiroAtual == "Vermelho")
+        else if (switchControllerScript.corAtual == "Vermelho")
         {
 
             tiroAtual = playerLaserContollerScript.tiroVermelhoPreFab;
 
         }
-        else if (playerLaserContollerScript.corDoTiroAtual == "Cinza")
+        else if (switchControllerScript.corAtual == "Cinza")
         {
 
             tiroAtual = playerLaserContollerScript.tiroCinzaPreFab;
