@@ -70,13 +70,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Lasers\LaserCollector.cs" />
     <Compile Include="Assets\Scripts\Lasers\LaserScript.cs" />
-    <Compile Include="Assets\Scripts\Lasers\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Lasers\PlayerLaserController.cs" />
     <Compile Include="Assets\Scripts\Meteoros\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Meteoros\MovimentoDosMeteoros.cs" />
     <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
-    <Compile Include="Assets\Scripts\MovimentoDoFundo.cs" />
-    <Compile Include="Assets\Scripts\MovimentoDoPlayer.cs" />
+    <Compile Include="Assets\Scripts\Pontuacao.cs" />
     <Compile Include="Assets\Scripts\Resolution fixers\ControllingCameraAspectScript.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\AutoLoadSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\CarregaCena.cs" />
@@ -86,14 +84,22 @@
     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\fps.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\musicController.cs" />
+    <Compile Include="Assets\Scripts\System\ColorSwitches\SwitchController.cs" />
+    <Compile Include="Assets\Scripts\System\ColorSwitches\SwitchScript.cs" />
     <Compile Include="Assets\Scripts\System\FixedTransparency.cs" />
     <Compile Include="Assets\Scripts\System\GameControl.cs" />
+    <Compile Include="Assets\Scripts\System\Movimento\MovimentoDoFundo.cs" />
+    <Compile Include="Assets\Scripts\System\Movimento\MovimentoDoPlayer.cs" />
+    <Compile Include="Assets\Scripts\System\Perdeu.cs" />
+    <Compile Include="Assets\Scripts\System\ReloadBar\Reload.cs" />
     <Compile Include="Assets\Scripts\System\Rotacao.cs" />
     <Compile Include="Assets\Scripts\System\Sliders\SliderControlMusic.cs" />
     <Compile Include="Assets\Scripts\System\Sliders\SliderControlTransp.cs" />
     <Compile Include="Assets\Scripts\System\Textos\MusicText.cs" />
     <Compile Include="Assets\Scripts\System\Textos\SettingTexts.cs" />
+    <Compile Include="Assets\Scripts\System\Textos\TextoPontuacao.cs" />
     <Compile Include="Assets\Scripts\System\Transparencia.cs" />
+    <Compile Include="Assets\Scripts\System\Vibration.cs" />
     <Compile Include="Assets\TODO LIST.cs" />
   </ItemGroup>
   <ItemGroup>

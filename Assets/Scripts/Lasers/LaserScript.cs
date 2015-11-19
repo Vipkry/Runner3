@@ -8,6 +8,7 @@ public class LaserScript : MonoBehaviour
     private GameObject player;
     private Renderer playerRenderer;
     private GameObject tiroAtual;
+    private SwitchController switchControllerScript;
 
     private GameObject novoTiro;
     private GameObject novoTiro2;
@@ -19,7 +20,8 @@ public class LaserScript : MonoBehaviour
 
     void Start()
     {
-        
+        // Pega o Switch Controller
+        switchControllerScript = GameObject.FindGameObjectWithTag("SwitchController").GetComponent<SwitchController>();
         // Pega o objeto do player
         player = GameObject.FindGameObjectWithTag("Player");
         // Pega o objeto do playerLaserControllerScript
@@ -31,12 +33,13 @@ public class LaserScript : MonoBehaviour
         // Muda a cor do tiro se necessário
         CorDoTiro();
         // Atira
-        Atira();      
+        Atira();
 
     }
 
-    void Update() {
-        
+    void Update()
+    {
+
         // Multiplica por delta time para permanecer igual em todos os dispositivos
         laserForceDeltaTime = laserForce * Time.deltaTime;
         // Essa é a movimentação dele. Não usei Rigidbody2D.AddForce() Pois o mesmo leva um tempo no disparo
@@ -70,31 +73,31 @@ public class LaserScript : MonoBehaviour
 
         // Destrói o controlador do tiro
         Destroy(gameObject);
-        
-    }    
+
+    }
 
     private void CorDoTiro()
     {
 
-        if (playerLaserContollerScript.corDoTiroAtual == "Azul")
+        if (switchControllerScript.corAtual == "Azul")
         {
 
             tiroAtual = playerLaserContollerScript.tiroAzulPreFab;
 
         }
-        else if (playerLaserContollerScript.corDoTiroAtual == "Amarelo")
+        else if (switchControllerScript.corAtual == "Amarelo")
         {
 
             tiroAtual = playerLaserContollerScript.tiroAmareloPreFab;
 
         }
-        else if (playerLaserContollerScript.corDoTiroAtual == "Vermelho")
+        else if (switchControllerScript.corAtual == "Vermelho")
         {
 
             tiroAtual = playerLaserContollerScript.tiroVermelhoPreFab;
 
         }
-        else if (playerLaserContollerScript.corDoTiroAtual == "Cinza")
+        else if (switchControllerScript.corAtual == "Cinza")
         {
 
             tiroAtual = playerLaserContollerScript.tiroCinzaPreFab;
@@ -114,9 +117,9 @@ public class LaserScript : MonoBehaviour
         Transform novoTiroTransform2 = novoTiro2.GetComponent<Transform>();
 
         // Esquerda 
-        novoTiroTransform.position = new Vector3(playerRenderer.bounds.center.x - playerRenderer.bounds.extents.x * 3/4 , playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
+        novoTiroTransform.position = new Vector3(playerRenderer.bounds.center.x - playerRenderer.bounds.extents.x * 3 / 4, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
         // Direita
-        novoTiroTransform2.position = new Vector3(playerRenderer.bounds.center.x + playerRenderer.bounds.extents.x * 3/4, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);        
+        novoTiroTransform2.position = new Vector3(playerRenderer.bounds.center.x + playerRenderer.bounds.extents.x * 3 / 4, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
 
     }
 }

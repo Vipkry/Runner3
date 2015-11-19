@@ -11,8 +11,9 @@ public class PlayerLaserController : MonoBehaviour
     public GameObject tiroAmareloPreFab;
     public GameObject tiroCinzaPreFab;
     public GameObject tiroTransparentePreFab;
-    
-    public string corDoTiroAtual;
+    public Reload reloadBarScript; 
+    public float reloadTime;
+
     public float laserForce;
     public bool podeAtirar;
     private bool recarregou;
@@ -25,8 +26,7 @@ public class PlayerLaserController : MonoBehaviour
         setPodeAtirar(true);
         // Pega o objeto do outro script
         movimentoDoPlayerScript = GetComponent<MovimentoDoPlayer>();
-        
-        corDoTiroAtual = "Amarelo";
+
     }
 
     // Update is called once per frame
@@ -43,20 +43,24 @@ public class PlayerLaserController : MonoBehaviour
 
     }
 
-    void AtiraLaserTransparente() {
+    void AtiraLaserTransparente()
+    {
 
-            StartCoroutine(reloadDelay());    
+        StartCoroutine(reloadDelay());
 
-            Renderer playerRenderer = GetComponent<Renderer>();
+        Renderer playerRenderer = GetComponent<Renderer>();
 
-            GameObject novoTiroTransparente = Instantiate(tiroTransparentePreFab);
+        GameObject novoTiroTransparente = Instantiate(tiroTransparentePreFab);
 
-            novoTiroTransparente.transform.position = new Vector3(playerRenderer.bounds.center.x, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
+        novoTiroTransparente.transform.position = new Vector3(playerRenderer.bounds.center.x, playerRenderer.bounds.center.y + playerRenderer.bounds.extents.y, transform.position.z);
 
-        
+        reloadBarScript.reload();
+
+
     }
 
-    public void setPodeAtirar(bool boolean) {
+    public void setPodeAtirar(bool boolean)
+    {
 
         podeAtirar = boolean;
 
@@ -64,14 +68,15 @@ public class PlayerLaserController : MonoBehaviour
 
     }
 
-    IEnumerator reloadDelay() {
+    IEnumerator reloadDelay()
+    {
 
         recarregou = false;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(reloadTime);
 
         recarregou = true;
 
     }
-    
+
 }
