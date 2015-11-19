@@ -5,7 +5,6 @@ public class LaserScript : MonoBehaviour
 {
 
     private PlayerLaserController playerLaserContollerScript;
-    private SwitchController switchControllerScript;
     private GameObject player;
     private Renderer playerRenderer;
     private GameObject tiroAtual;
@@ -16,10 +15,11 @@ public class LaserScript : MonoBehaviour
     private float laserForce;
     private float laserForceDeltaTime;
 
+
+
     void Start()
     {
-        // Pega o objeto do Switch Controller
-        switchControllerScript = GameObject.FindGameObjectWithTag("SwitchController").GetComponent<SwitchController>();
+        
         // Pega o objeto do player
         player = GameObject.FindGameObjectWithTag("Player");
         // Pega o objeto do playerLaserControllerScript
@@ -61,9 +61,8 @@ public class LaserScript : MonoBehaviour
         {
             // Destrói o meteoro
             Destroy(targetGO);
-            // Faz vibrar
-            Vibration.Vibrate(180);
-
+			GameObject.Find("GameControl").GetComponent<Pontuacao>().AdicionaPontos();
+	
         }
 
         Destroy(novoTiro);
@@ -77,25 +76,25 @@ public class LaserScript : MonoBehaviour
     private void CorDoTiro()
     {
 
-        if (switchControllerScript.corAtual == "Azul")
+        if (playerLaserContollerScript.corDoTiroAtual == "Azul")
         {
 
             tiroAtual = playerLaserContollerScript.tiroAzulPreFab;
 
         }
-        else if (switchControllerScript.corAtual == "Amarelo")
+        else if (playerLaserContollerScript.corDoTiroAtual == "Amarelo")
         {
 
             tiroAtual = playerLaserContollerScript.tiroAmareloPreFab;
 
         }
-        else if (switchControllerScript.corAtual == "Vermelho")
+        else if (playerLaserContollerScript.corDoTiroAtual == "Vermelho")
         {
 
             tiroAtual = playerLaserContollerScript.tiroVermelhoPreFab;
 
         }
-        else if (switchControllerScript.corAtual == "Cinza")
+        else if (playerLaserContollerScript.corDoTiroAtual == "Cinza")
         {
 
             tiroAtual = playerLaserContollerScript.tiroCinzaPreFab;

@@ -9,6 +9,7 @@ public class GameControl : MonoBehaviour {
 	public static GameControl controleGeral;
 	public float ValorTransparencia;
 	public float ValorMusica;
+	public int MaiorPontuacao;
 
 	//Verifica se ja existe um GameControl, se sim, destroi ele e torna este o GameControl
 	void Awake () {
@@ -24,6 +25,27 @@ public class GameControl : MonoBehaviour {
 	}
 
 	//Salva os dados em um arquivo binario
+	public void SaveInfo (){
+		BinaryFormatter bf = new BinaryFormatter();
+		FileStream file = File.Create(Application.persistentDataPath + "/Info.dat");
+		InfoData dados = new InfoData();
+		dados.MaiorPontuacao = MaiorPontuacao;
+		bf.Serialize(file, dados);
+		file.Close();
+	}
+
+	public void LoadInfo()
+	{
+		if(File.Exists(Application.persistentDataPath + "/Info.dat"))
+		{
+			BinaryFormatter bf = new BinaryFormatter();
+			FileStream file = File.Open (Application.persistentDataPath + "/Info.dat", FileMode.Open);
+			InfoData dados = (InfoData)bf.Deserialize(file);
+			MaiorPontuacao = dados.MaiorPontuacao;
+			file.Close();
+		}
+	}
+
 	public void SaveSettings (){
 		BinaryFormatter bf = new BinaryFormatter();
 		FileStream file = File.Create(Application.persistentDataPath + "/settingsInfo.dat");
@@ -33,6 +55,8 @@ public class GameControl : MonoBehaviour {
 		bf.Serialize(file, dados);
 		file.Close();
 	}
+
+
 	//Carrega os dados de um arquivo binario
 	public void LoadSettings()
 	{
@@ -54,4 +78,10 @@ class SettingsData
 {
 	public float ValorTransparencia;
 	public float ValorMusica;
+}
+
+[Serializable]
+class InfoData
+{
+	public int MaiorPontuacao;
 }
