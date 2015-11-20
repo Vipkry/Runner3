@@ -194,5 +194,15 @@ public class MovimentoDoPlayer : MonoBehaviour
         return swipe;
     }
 
+	//Verifica se o player colidiu com algum objeto com a tag Meteoro, fazendo ele perder o jogo.
+	//Esta desativada para que possamos testar o jogo sem que o jogo fique parando.
+	/**
+	private void OnTriggerEnter2D(Collider2D colli)
+	{
+		if(colli.gameObject.CompareTag("Meteoro")){
+			GameObject.Find("GameControl").GetComponent<Perdeu>().FimDeJogo();
+		}
+	}
+	**/
 
 }

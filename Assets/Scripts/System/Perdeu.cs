@@ -33,7 +33,6 @@ public class Perdeu : MonoBehaviour {
 			GameObject.Find("GameControl").GetComponent<GameControl>().MaiorPontuacao = AtualPts;
 			GameObject.Find("GameControl").GetComponent<GameControl>().SaveInfo();
 			HighScoreText.SetActive(true);
-			print ("salvou");
 		}
 
 
