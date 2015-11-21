@@ -23,13 +23,12 @@ public class Pontuacao : MonoBehaviour {
 	}
 
 	IEnumerator AdicionaPontosPeriodicamente(float segs){
-		//Utilizei um loop infinito para a coroutine ficar sendo chamada infinitamente, e sendo chamada apenas quando
-		// ela termina, pois se eu colocasse ela no Update() ela ficaria sendo chamada sempre uma em cima da outra
-		while (true){
+		
 			yield return new WaitForSeconds(segs);
 			//Soma a pontuaçao atual o valor definido de pontos
 			pontos += valorPeriodico;
-		}
+            StartCoroutine(AdicionaPontosPeriodicamente(segundos));
+		
 	}
 	public void AdicionaPontos(){
 		pontos += recompensa;

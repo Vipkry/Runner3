@@ -74,12 +74,12 @@
     <Compile Include="Assets\Scripts\Meteoros\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Meteoros\MovimentoDosMeteoros.cs" />
     <Compile Include="Assets\Scripts\Meteoros\Spawner.cs" />
-    <Compile Include="Assets\Scripts\Pontuacao.cs" />
     <Compile Include="Assets\Scripts\Resolution fixers\ControllingCameraAspectScript.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\AutoLoadSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\CarregaCena.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\DontDestroyPLS.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\PauseSystem.cs" />
+    <Compile Include="Assets\Scripts\System\Auxiliares\Rotacao.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\Sair.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\SaveSettings.cs" />
     <Compile Include="Assets\Scripts\System\Auxiliares\fps.cs" />
@@ -91,8 +91,8 @@
     <Compile Include="Assets\Scripts\System\Movimento\MovimentoDoFundo.cs" />
     <Compile Include="Assets\Scripts\System\Movimento\MovimentoDoPlayer.cs" />
     <Compile Include="Assets\Scripts\System\Perdeu.cs" />
+    <Compile Include="Assets\Scripts\System\Pontuacao.cs" />
     <Compile Include="Assets\Scripts\System\ReloadBar\Reload.cs" />
-    <Compile Include="Assets\Scripts\System\Rotacao.cs" />
     <Compile Include="Assets\Scripts\System\Sliders\SliderControlMusic.cs" />
     <Compile Include="Assets\Scripts\System\Sliders\SliderControlTransp.cs" />
     <Compile Include="Assets\Scripts\System\Textos\MusicText.cs" />
